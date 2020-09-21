@@ -7,7 +7,7 @@ function Todos() {
 	const todos = useSelector((state) => state.todos);
 	const dispatch = useDispatch();
 
-	const addTodo = (todo) => dispatch({ type: 'ADD_TODO', todo });
+	const addTodo = (item) => dispatch({ type: 'ADD_TODO', item });
 	const updateTodo = (id, updatedItem) => dispatch({ type: 'UPDATE_TODO', id, updatedItem });
 	const deleteTodo = (id) => dispatch({ type: 'DELETE_TODO', id });
 

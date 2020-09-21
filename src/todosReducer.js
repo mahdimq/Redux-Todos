@@ -7,12 +7,15 @@ const todosReducer = (state = INITIAL_TODOS, action) => {
 		case 'ADD_TODO':
 			return { ...state, todos: [...state.todos, { item: action.item, id: uuid() }] };
 
-		case 'UPDATE_TODO':
+		case 'UPDATE_TODO': {
 			const todos = state.todos.map((todo) => {
 				if (todo.id === action.id) {
 					return { ...todo, item: action.updatedItem };
 				}
+				return todo;
 			});
+			return { ...state, todos };
+		}
 
 		case 'DELETE_TODO':
 			return { ...state, todos: state.todos.filter((todo) => todo.id !== action.id) };
